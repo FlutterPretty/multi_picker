@@ -6,6 +6,8 @@ import 'package:multi_picker/bean/select_item.dart';
 import 'package:multi_picker/widget/picker_list_widget.dart';
 import 'package:multi_picker/widget/picker_action_bar.dart';
 
+typedef List<Widget> CreateWidgetList();
+
 class PickerPanel extends StatefulWidget {
   final List<PickerItem> data;
   final PickerOption option;
@@ -26,6 +28,8 @@ class PickerPanel extends StatefulWidget {
 class _PickerPanelState extends State<PickerPanel> {
   final PickerOption option;
   List<PickerItem> data;
+  List<PickerItem> data2;
+  List<PickerItem> data3;
 
   int selectIndex = 0;
   int selectIndex2 = 0;
@@ -42,28 +46,6 @@ class _PickerPanelState extends State<PickerPanel> {
   _PickerPanelState(this.data, {this.option}) {
     if (option != null) {
       multiNum = option.multiNum;
-//      if (multiNum == 1) {
-//        PickerItem item = PickerItem();
-//        item.showTitle = "请选择";
-//        data.insert(0, item);
-//      } else if (multiNum == 2) {
-//        PickerItem item = PickerItem();
-//        item.showTitle = "请选择";
-//        PickerItem item2 = PickerItem();
-//        item2.showTitle = "请选择";
-//        item.childData = [item2];
-//        data.insert(0, item);
-//      } else {
-//        PickerItem item = PickerItem();
-//        item.showTitle = "请选择";
-//        PickerItem item2 = PickerItem();
-//        item2.showTitle = "请选择";
-//        PickerItem item3 = PickerItem();
-//        item3.showTitle = "请选择";
-//        item2.childData = [item3];
-//        item.childData = [item2];
-//        data.insert(0, item);
-//      }
     }
   }
 
@@ -132,23 +114,23 @@ class _PickerPanelState extends State<PickerPanel> {
     List<Widget> widgets = List();
     for (int i = 0; i < multiNum; i++) {
       if (i == 0) {
-        widgets.add(_singleItemDisplay(i, data));
+        widgets.add(_singleItemDisplay(i));
       } else if (i == 1) {
-        widgets.add(_singleItemDisplay(i, data[selectIndex].childData));
+        data2 = data[selectIndex].childData;
+        widgets.add(_singleItemDisplay(i));
       } else {
-        widgets.add(_singleItemDisplay(
-            i, data[selectIndex].childData[selectIndex2].childData));
+        data3 = data[selectIndex].childData[selectIndex2].childData;
+        widgets.add(_singleItemDisplay(i));
       }
     }
     return widgets;
   }
 
-  Widget _singleItemDisplay(int i, List<PickerItem> dataList) {
+  Widget _singleItemDisplay(int i) {
     return Expanded(
       flex: 1,
       child: PickerListWidget(
         key: _buildKey(i),
-        data: dataList,
         scrollController: _buildScrollController(i),
         onSelectedItemChanged: (val) {
           if (this.widget.selectCallback != null)
@@ -157,6 +139,7 @@ class _PickerPanelState extends State<PickerPanel> {
             case 0:
               setState(() {
                 selectIndex = val;
+                data2 = data[selectIndex].childData;
               });
               scrollController2.jumpToItem(0);
               break;
@@ -171,6 +154,27 @@ class _PickerPanelState extends State<PickerPanel> {
                 selectIndex3 = val;
               });
               break;
+          }
+        },
+        createWidgetList: () {
+          if (i == 0) {
+            return data.map((v) {
+              return Center(
+                child: Text(v.toString()),
+              );
+            }).toList();
+          } else if (i == 1) {
+            return data2.map((v) {
+              return Center(
+                child: Text(v.toString()),
+              );
+            }).toList();
+          } else {
+            return data3.map((v) {
+              return Center(
+                child: Text(v.toString()),
+              );
+            }).toList();
           }
         },
       ),

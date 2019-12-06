@@ -3,42 +3,43 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_picker/bean/picker_item.dart';
 
-class PickerListWidget extends StatelessWidget {
+typedef List<Widget> CreateWidgetList();
+
+class PickerListWidget extends StatefulWidget {
   final List<PickerItem> data;
   final ValueChanged<int> onSelectedItemChanged;
   final FixedExtentScrollController scrollController;
+  final CreateWidgetList createWidgetList;
   final Key key;
-  static const double _ITEM_HEIGHT = 40;
 
   PickerListWidget(
-      {this.key, this.data, this.onSelectedItemChanged, this.scrollController});
+      {this.key,
+      this.data,
+      this.onSelectedItemChanged,
+      this.scrollController,
+      this.createWidgetList});
+
+  @override
+  State<StatefulWidget> createState() => _PickerListWidgetState();
+}
+
+class _PickerListWidgetState extends State<PickerListWidget> {
+  static const double _ITEM_HEIGHT = 40;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPicker(
-      key: key,
+      key: this.widget.key,
       itemExtent: _ITEM_HEIGHT,
-      scrollController: scrollController,
-      children: _buildItems(),
-      onSelectedItemChanged: this.onSelectedItemChanged,
-    );
-  }
-
-  List<Widget> _buildItems() {
-    List<Widget> widgets = [];
-    if (data.length == 0 || data[0].showTitle != "请选择") {
-      data.insert(0, PickerItem("请选择"));
-    }
-
-    widgets.addAll(data.map((PickerItem item) {
-      return _singleItemDisplay(item);
-    }).toList());
-    return widgets;
-  }
-
-  Widget _singleItemDisplay(PickerItem item) {
-    return Center(
-      child: Text(item.toString()),
+      scrollController: this.widget.scrollController,
+      children: widget.createWidgetList().length > 0
+          ? widget.createWidgetList()
+          : [
+              Center(
+                child: Text('请选择'),
+              )
+            ],
+      onSelectedItemChanged: this.widget.onSelectedItemChanged,
     );
   }
 }
