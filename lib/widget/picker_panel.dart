@@ -16,17 +16,15 @@ class PickerPanel extends StatefulWidget {
   final ValueChanged<SelectItem> selectCallback;
 
   PickerPanel(this.data,
-      {this.option, this.cancel, this.confirm, this.selectCallback});
+      {Key key, this.option, this.cancel, this.confirm, this.selectCallback})
+      : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _PickerPanelState(
-        data,
-        option: option,
-      );
+  State<StatefulWidget> createState() => PickerPanelState(data, option: option);
 }
 
-class _PickerPanelState extends State<PickerPanel> {
-  final PickerOption option;
+class PickerPanelState extends State<PickerPanel> {
+  PickerOption option;
   List<PickerItem> data;
   List<PickerItem> data2;
   List<PickerItem> data3;
@@ -43,15 +41,18 @@ class _PickerPanelState extends State<PickerPanel> {
   FixedExtentScrollController scrollController3 =
       new FixedExtentScrollController();
 
-  _PickerPanelState(this.data, {this.option}) {
-    if (option != null) {
-      multiNum = option.multiNum;
-    }
+  PickerPanelState(this.data, {this.option});
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (option == null) option = _getDefaultOption();
+    multiNum = option.multiNum;
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.black.withOpacity(0.25),
       body: Align(
@@ -134,7 +135,7 @@ class _PickerPanelState extends State<PickerPanel> {
         scrollController: _buildScrollController(i),
         onSelectedItemChanged: (val) {
           if (this.widget.selectCallback != null)
-            this.widget.selectCallback(SelectItem(i, val - 1));
+            this.widget.selectCallback(SelectItem(i, val));
           switch (i) {
             case 0:
               setState(() {
@@ -199,5 +200,15 @@ class _PickerPanelState extends State<PickerPanel> {
     } else {
       return scrollController3;
     }
+  }
+
+  PickerOption _getDefaultOption() {
+    PickerOption option = PickerOption();
+    option.multiNum = 1;
+    return option;
+  }
+
+  void notifyDataChanged() {
+    setState(() {});
   }
 }

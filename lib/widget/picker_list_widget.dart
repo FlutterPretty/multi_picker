@@ -6,7 +6,6 @@ import 'package:multi_picker/bean/picker_item.dart';
 typedef List<Widget> CreateWidgetList();
 
 class PickerListWidget extends StatefulWidget {
-  final List<PickerItem> data;
   final ValueChanged<int> onSelectedItemChanged;
   final FixedExtentScrollController scrollController;
   final CreateWidgetList createWidgetList;
@@ -14,7 +13,6 @@ class PickerListWidget extends StatefulWidget {
 
   PickerListWidget(
       {this.key,
-      this.data,
       this.onSelectedItemChanged,
       this.scrollController,
       this.createWidgetList});
