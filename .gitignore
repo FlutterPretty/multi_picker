@@ -7,3 +7,5 @@
 build/
 
 .idea/
+
+/lib/**/*.g.dart

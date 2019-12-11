@@ -165,17 +165,21 @@ class PickerPanelState extends State<PickerPanel> {
               );
             }).toList();
           } else if (i == 1) {
-            return data2.map((v) {
-              return Center(
-                child: Text(v.toString()),
-              );
-            }).toList();
+            return data2 != null
+                ? data2.map((v) {
+                    return Center(
+                      child: Text(v.toString()),
+                    );
+                  }).toList()
+                : [];
           } else {
-            return data3.map((v) {
-              return Center(
-                child: Text(v.toString()),
-              );
-            }).toList();
+            return data3 != null
+                ? data3.map((v) {
+                    return Center(
+                      child: Text(v.toString()),
+                    );
+                  }).toList()
+                : [];
           }
         },
       ),
