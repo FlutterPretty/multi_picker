@@ -45,10 +45,17 @@ class PickerPanelState extends State<PickerPanel> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     if (option == null) option = _getDefaultOption();
     multiNum = option.multiNum;
+    selectIndex = option.layer1SelectIndex;
+    selectIndex2 = option.layer2SelectIndex;
+
+    WidgetsBinding.instance.addPostFrameCallback((val) {
+      scrollController1.jumpToItem(selectIndex);
+      scrollController2.jumpToItem(selectIndex2);
+      scrollController3.jumpToItem(selectIndex3);
+    });
   }
 
   @override
