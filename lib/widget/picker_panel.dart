@@ -13,10 +13,16 @@ class PickerPanel extends StatefulWidget {
   final PickerOption option;
   final VoidCallback cancel;
   final ValueChanged<dynamic> confirm;
+  final VoidCallback selectNone;
   final ValueChanged<SelectItem> selectCallback;
 
   PickerPanel(this.data,
-      {Key key, this.option, this.cancel, this.confirm, this.selectCallback})
+      {Key key,
+      this.option,
+      this.cancel,
+      this.confirm,
+      this.selectNone,
+      this.selectCallback})
       : super(key: key);
 
   @override
@@ -77,6 +83,10 @@ class PickerPanelState extends State<PickerPanel> {
                 confirm: () {
                   Navigator.pop(context);
                   _returnData();
+                },
+                selectNone: (){
+                  Navigator.pop(context);
+                  if (this.widget.selectNone != null) this.widget.selectNone();
                 },
               ),
               Expanded(

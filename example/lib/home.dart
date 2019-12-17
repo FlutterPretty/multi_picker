@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_picker/widget/picker_panel.dart';
 import 'package:multi_picker/bean/picker_option.dart';
-import 'package:multi_picker_example/country.dart';
-import 'package:multi_picker_example/pepole.dart';
+import 'package:multi_picker_example/bean/country.dart';
+import 'package:multi_picker_example/bean/people.dart';
 import 'package:multi_picker/bean/picker_item.dart';
 import 'package:multi_picker/bean/select_item.dart';
 
@@ -19,10 +19,10 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     List<PickerItem> childData = List();
-    childData.add(Pepole("张三"));
-    childData.add(Pepole("李四"));
-    childData.add(Pepole("王五"));
-    childData.add(Pepole("赵六"));
+    childData.add(People("张三"));
+    childData.add(People("李四"));
+    childData.add(People("王五"));
+    childData.add(People("赵六"));
 
     Country cn = Country("中国");
     cn.childData = childData;
@@ -61,21 +61,21 @@ class _HomeState extends State<Home> {
                             if (item.index == 1) {
                               setState(() {
                                 List<PickerItem> childData = List();
-                                childData.add(Pepole("陈七"));
-                                childData.add(Pepole("刘八"));
-                                childData.add(Pepole("朱九"));
-                                childData.add(Pepole("韩十"));
+                                childData.add(People("陈七"));
+                                childData.add(People("刘八"));
+                                childData.add(People("朱九"));
+                                childData.add(People("韩十"));
                                 data[1].childData = childData;
                               });
                             } else if (item.index == 2) {
                               setState(() {
                                 List<PickerItem> childData = List();
-                                childData.add(Pepole("Tom"));
-                                childData.add(Pepole("Jerry"));
-                                childData.add(Pepole("Green"));
-                                childData.add(Pepole("White"));
-                                childData.add(Pepole("Red"));
-                                childData.add(Pepole("Yellow"));
+                                childData.add(People("Tom"));
+                                childData.add(People("Jerry"));
+                                childData.add(People("Green"));
+                                childData.add(People("White"));
+                                childData.add(People("Red"));
+                                childData.add(People("Yellow"));
                                 data[item.index].childData = childData;
                               });
                             }
