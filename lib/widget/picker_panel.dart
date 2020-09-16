@@ -226,6 +226,8 @@ class PickerPanelState extends State<PickerPanel> {
   PickerOption _getDefaultOption() {
     PickerOption option = PickerOption();
     option.multiNum = 1;
+    option.layer1SelectIndex = 0;
+    option.layer2SelectIndex = 0;
     return option;
   }
 

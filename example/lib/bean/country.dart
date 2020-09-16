@@ -1,4 +1,3 @@
-import 'package:json_serializable/json_serializable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:multi_picker/bean/picker_item.dart';
 

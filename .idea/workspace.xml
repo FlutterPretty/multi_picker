@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b1e0a3f1-a387-4821-9e4a-28ae01f72f91" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="2297053f7d44" />
+  <component name="ProjectId" id="1hWvEggB78q0SDVdnLtQduIbxwj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\muma\Cart\multi_picker\example\lib" />
+      <recent name="D:\Documents\muma\Cart\multi_picker\lib" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1e0a3f1-a387-4821-9e4a-28ae01f72f91" name="Default Changelist" comment="" />
+      <created>1600139553223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600139553223</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="218" key="FileChooserDialogImpl" timestamp="1600139927083">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="218" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1600139927083" />
+    <state width="1865" height="333" key="GridCell.Tab.0.bottom" timestamp="1600153449433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1600153449433" />
+    <state width="1865" height="333" key="GridCell.Tab.0.center" timestamp="1600153449433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1600153449433" />
+    <state width="1865" height="333" key="GridCell.Tab.0.left" timestamp="1600153449433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1600153449433" />
+    <state width="1865" height="333" key="GridCell.Tab.0.right" timestamp="1600153449433">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1865" height="333" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1600153449433" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/widget/picker_panel.dart</url>
+          <line>136</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="FlutterRunConfigurationType">
+        <watch expression="selectIndex" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

@@ -3,10 +3,11 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:multi_picker/multi_picker.dart';
-
 import 'package:multi_picker_example/home.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -45,9 +46,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-//      routes: <String, WidgetBuilder>{
-//        '/pickerModal': (BuildContext context) => PickerModal(),
-//      },
       home: Home(),
     );
   }
